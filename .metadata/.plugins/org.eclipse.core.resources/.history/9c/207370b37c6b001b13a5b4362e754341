@@ -1,0 +1,10 @@
+package member.view;
+
+public class MemberMenu {
+
+	public void mainMenu() {
+		
+	}
+	
+	
+}

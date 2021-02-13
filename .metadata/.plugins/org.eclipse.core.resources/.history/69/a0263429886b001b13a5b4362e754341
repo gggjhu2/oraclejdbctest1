@@ -1,0 +1,33 @@
+package member.model.vo;
+
+import java.sql.Date;
+
+public class Member {
+	
+	private String memberId;
+	private String password;
+	private String memberName;
+//	private char gender;
+	private String gender;//M OR F 지만 스트링으로담는다.
+	private int age;
+	private String email;
+	private String phone;
+	private String address;
+	private String hobby;
+	private Date enrollDate; // java.sql.Date =>자바유틸쩜데이트의 자식클래스이다.
+	
+/* 
+ * 이름          널?       유형             
+----------- -------- -------------- 
+MEMBER_ID   NOT NULL VARCHAR2(20)   
+PASSWORD    NOT NULL VARCHAR2(20)   
+MAMBER_NAME NOT NULL VARCHAR2(100)  
+GENDER               CHAR(1)        
+AGE                  NUMBER         
+EMAIL                VARCHAR2(200)  
+PHONE       NOT NULL CHAR(11)       
+ADDRESS              VARCHAR2(1000) 
+HOBBY                VARCHAR2(100)  
+ENROLL_DATE          DATE 
+ */
+}

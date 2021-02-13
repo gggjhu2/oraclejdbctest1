@@ -1,0 +1,12 @@
+package member.view;
+
+import member.controller.MemberController;
+
+public class MemberMenu {
+
+	private MemberController memberController =new MemberController();
+	public void mainMenu() {
+	}
+	
+	
+}
