@@ -16,7 +16,7 @@ grant connect, resource to student;
 CREATE TABLE MEMBER(
     member_id varchar2(20),
     password varchar2(20) not null,
-    mamber_name varchar2(100) not null,
+    member_name varchar2(100) not null,
     gender char(1),
     age number,
     email varchar2(200),
@@ -28,6 +28,7 @@ CREATE TABLE MEMBER(
     CONSTRAINT ck_member_gender check(gender in ('M','F'))
     
 );
+
 
 INSERT Into MEMBER
 VALUES('honggd','1234','홍길동','M','33','honggd@naver.com','01012344567',

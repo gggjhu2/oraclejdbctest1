@@ -1,8 +1,0 @@
-package member.model.dao;
-			//DAO
-//			Data Access Object
-//			DB(데이터)에 접근하는 클래스라는뜼==>데이터에접근하는거는 DAO가 전부처리하도록
-//			설계해야하는것이중요하다.
-public class MemberDao {
-	
-}

@@ -1,5 +1,7 @@
 package member.controller;
 
+import java.util.List;
+
 import member.model.dao.MemberDao;
 import member.model.vo.Member;
 
@@ -21,6 +23,21 @@ public class MemberController {
 	public int insertMember(Member member) {
 //			int memberDAO.insertMember(member);//<==DML명령어는 몇행인지 정수형을 리턴한다.
 		return memberDao.insertMember(member);
+	}
+
+
+
+	public List<Member> selectALL() {
+		
+		return memberDao.selectALL();
+	}
+
+
+
+	public Member selectOne(String memberId) {
+		
+		
+		return memberDao.selectOne(memberId);
 	}
 	
 }

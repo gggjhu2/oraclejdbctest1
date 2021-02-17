@@ -1,8 +1,0 @@
-package member.controller;
-
-import member.model.dao.MemberDao;
-
-public class MemberController {
-	private MemberDao memberDao =new MemberDao();
-	
-}

@@ -1,5 +1,6 @@
 package member.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import member.controller.MemberController;
@@ -25,22 +26,38 @@ public class MemberMenu {
 		while(true) {
 			System.out.print(menu);
 			int choice =sc.nextInt();
-			
+			Member member =null;
+			int result=0;
+			String msg =null;
+			List<Member>list = null;
+			String memberId=null;
 			switch(choice) 
 			{
 			
-			case 1: break;
-			case 2: break;
+				//전체회원조회
+			case 1: 
+				list =memberController.selectALL();
+				displayMemberList(list);
+				break;
+				
+				//회원조회.
+			case 2: 
+				memberId =inputMemberId();
+				member =memberController.selectOne(memberId);
+				displayMember(member);
+				break;
 			case 3: break;
+			
+				//신규회원가입
 			case 4:
 				//1.신규 회원 정보 입력==>member객체로만드는과정.
-				Member member =intputMember();
+				member =intputMember();
 				System.out.println("신규회원 확인 : "+member);
 				//2.controller에 회원가입 메소드 호출 =>회원가입메소드호출->DML리턴은 int리턴(처리된행의개수)
 				//-->리턴된수로 정상처리유무를 확인.
-				int result =memberController.insertMember(member);
+				result =memberController.insertMember(member);
 				//3.int에 따른 분기처리
-				String msg= result >0 ?"회원가입성공!" : "회원가입 실패!";
+				msg= result >0 ?"회원가입성공!" : "회원가입 실패!";
 				displayMSG(msg); //<===사용자 피드백을보내는 메소드
 				
 				
@@ -57,6 +74,42 @@ public class MemberMenu {
 			}
 			
 		} 
+	}
+	
+	
+	//DB에서 조회한 1명의 회원 출력 0명일수도있음
+	private void displayMember(Member member) {
+		if(member ==null)
+			System.out.println(">>>>>조회된 회원이 없습니다.");
+		else {
+			System.out.println("*************************************************");
+			System.out.println(member);
+			System.out.println("*************************************************");
+			
+		}
+	}
+
+
+	//조회할 회원아이디 입력
+	private String inputMemberId() {
+		System.out.println("조회할 아이디 입력 : ");
+		return sc.next();
+	}
+
+	//DB에서 조회된 회원객체 N개를 출력
+	private void displayMemberList(List<Member> list) {
+		//list 로넘어온값이 0이거나 null일경우를 대비해 분기처리를 작성해준다
+		if(list ==null || list.isEmpty()) {
+			System.out.println(">>>>조회된 행이 없습니다.");
+		}
+		else {
+			System.out.println("*********************************************************");
+			for(Member m :list) {
+				System.out.println(m);
+			}
+			System.out.println("**********************************************************");
+		}
+		
 	}
 	/*
 	 * DML처리결과 통보용
